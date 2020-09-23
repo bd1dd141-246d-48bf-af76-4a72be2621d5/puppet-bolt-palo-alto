@@ -1,0 +1,28 @@
+#name: boltshop::build_webserver
+description: Post configuration 
+
+parameters:
+  targets:
+    type: TargetSpec
+    description: Palo Altos to target
+
+steps:
+  - command: "request system software download version ${Version}"
+    description: "Downloading the latest version."
+    targets: $targets
+  - upload: boltshop/mywebsite
+    description: "Uploading the website to the appropriate folder."
+    destination: "C:\\inetpub"
+    targets: $targets
+  - name: iis
+    targets: $targets
+    resources:
+      - iis_site: "Default Web Site"
+        parameters:
+          ensure: absent
+      - iis_site: "My Web Site"
+        parameters:
+          ensure: present
+          physicalpath: "C:\\inetpub\\mywebsite"
+          applicationpool: "DefaultAppPool"
+return: $iis

@@ -1,0 +1,15 @@
+# inventory.yaml
+groups:
+  - name: paloalto
+    targets:
+      - uri: {password}
+        alias: pan
+    config:
+      transport: remote
+      remote:
+        remote-transport: panos
+        user: {username}
+        password: {password}
+        ssl: false
+        host-key-check: false
+    

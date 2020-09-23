@@ -1,0 +1,5 @@
+---
+name: paloconfig
+inventoryfile: "./inventory.yaml"
+modulepath: 
+  - "./modules"

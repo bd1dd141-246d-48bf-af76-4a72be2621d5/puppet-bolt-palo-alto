@@ -1,0 +1,14 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "remote": true,
+  "description": "Retrieve a PAN-OS apikey",
+  "parameters": {
+  },
+  "files": [
+    "panos/lib/puppet/util/task_helper.rb",
+    "panos/lib/puppet/transport/panos.rb",
+    "panos/lib/puppet/transport/schema/panos.rb",
+    "panos/lib/puppet_x/puppetlabs/panos/transport_shim.rb"
+  ]
+}
